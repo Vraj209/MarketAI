@@ -1,4 +1,4 @@
-import { BusinessProfile as PrismaBusinessProfile } from "@prisma/client";
+import type { BusinessProfile as PrismaBusinessProfile } from "@prisma/client";
 
 import { BusinessOnboardingInput } from "@/features/business/schemas/onboarding";
 import { BusinessProfile } from "@/features/business/types/business-profile";
