@@ -1,0 +1,167 @@
+Agent Architecture Recommendation
+
+Use one orchestrator with specialized sub-agents/tools for MVP.
+
+Main orchestrator
+
+MarketingStrategistAgent
+
+Responsibilities:
+
+understand business request
+
+decide what deliverable is needed
+
+call supporting tools/sub-agents
+
+assemble final response
+
+Specialized capability modules
+
+CampaignPlanner
+
+EmailCampaignGenerator
+
+NewsletterGenerator
+
+SocialMediaGenerator
+
+WebsiteAuditAgent
+
+MarketingResearchAgent
+
+LeadInquiryResponseAgent
+
+ReportGenerator
+
+DeckOutlineGenerator
+
+AdCreativeBriefGenerator
+
+Do not build a fully autonomous multi-agent swarm in MVP.
+Build a deterministic orchestration system with bounded steps.
+
+Request Lifecycle Example
+User input
+
+“I own a pizza store. What campaign should I run? Here is my customer lifecycle and current online presence.”
+
+System flow
+
+Parse request
+
+Classify intent as strategy + campaign recommendation
+
+Fetch business profile
+
+Analyze website/social presence
+
+Analyze lifecycle stage
+
+Generate strategic recommendations
+
+Suggest best channel mix
+
+Generate campaign assets:
+
+email concept
+
+Instagram post ideas
+
+LinkedIn not needed unless B2B
+
+flyer / promo suggestions
+
+Generate simple ROI estimate
+
+Return structured dashboard response
+
+Non-Functional Requirements
+Performance
+
+Fast initial dashboard load
+
+Stream long AI outputs when useful
+
+Background jobs for heavy generation
+
+Cache repeatable analysis results where appropriate
+
+Security
+
+Validate all user inputs with Zod
+
+Sanitize URLs and scraped content
+
+Protect APIs with auth and rate limiting
+
+Do not expose API keys to client
+
+Enforce server-side authorization
+
+Reliability
+
+Retry transient AI failures
+
+Save failed job states
+
+Track every agent run
+
+Add fallback messaging when some tools fail
+
+Observability
+
+Log agent steps
+
+Log tool inputs/outputs safely
+
+Add trace IDs for each run
+
+Store execution history for debugging
+
+MVP Delivery Recommendation
+Phase 1 — Foundation
+
+auth
+
+dashboard shell
+
+business onboarding
+
+brand profile
+
+prompt orchestration foundation
+
+basic campaign strategy agent
+
+Phase 2 — Content generation
+
+social post generation
+
+email generation
+
+newsletter generation
+
+simple reports
+
+Phase 3 — Analysis
+
+website audit
+
+business research
+
+competitor insights
+
+ROI/sales projection summaries
+
+Phase 4 — Expansion
+
+deck generation
+
+landing page generator
+
+inquiry response automation
+
+telephony workflows
+
+social publishing
